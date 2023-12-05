@@ -1,14 +1,14 @@
 //Clases que se van a usar en nuestro ejercicio.
 
 //Exportamos la clase RootObject
-interface RootObject {
+export interface RootObject {
     status: string;
     totalResults: number;
     articles: Article[];
   }
   
   //Exportamos la clase RootObject
-  interface Article {
+  export interface Article {
     source: Source;
     author?: string;
     title: string;
