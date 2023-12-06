@@ -7,7 +7,7 @@ export interface RootObject {
     articles: Article[];
   }
   
-  //Exportamos la clase RootObject
+  //Exportamos la clase Article
   export interface Article {
     source: Source;
     author?: string;
