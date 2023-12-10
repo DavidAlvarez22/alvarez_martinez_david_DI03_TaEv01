@@ -6,7 +6,7 @@ import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
-import { ComponentesModule } from '../shared/componentes.module';
+import { ComponentesModule } from '../componentes/componentes.module';
 
 @NgModule({
   imports: [

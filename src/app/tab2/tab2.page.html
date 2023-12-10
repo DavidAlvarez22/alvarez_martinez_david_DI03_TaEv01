@@ -3,7 +3,7 @@
 <ion-content>
   <!--Creamos nuestra con la etiqueta Ion-card nuestro elemento a mostrar en la página y 
     a través de ngFor crearemos un bucle que recorrerá nuestro array de noticias seleccionadas. 
-    Para obtener el arrayde noticias seleccionadas, llamaremos a la función getDatosArchivoSegundaPagina de nuestro servicio-->
+    Para obtener el array de noticias seleccionadas, llamaremos a la función getDatosArchivoSegundaPagina de nuestro servicio-->
   <ion-card *ngFor = "let articulo of gestionDatos.getDatosArchivoSegundaPagina()">
   
     <ion-card-header> <!--Le ponemos un encabezamiento a nuestro elemento ion card-->
@@ -13,7 +13,7 @@
     </ion-card-header>
 
     <ion-card-content> <!-- El cuerpo de nuestro elemento ion -card-->
-      <ion-img src="{{articulo.urlToImage}}"></ion-img> <!--La imagen que vamos a insertar. Es un elemento que varía en función del articulo selecciionado en el array-->
+      <ion-img src="{{articulo.urlToImage}}"></ion-img> <!--La imagen que vamos a insertar. Es un elemento que varía en función del articulo seleccionado en el array-->
       <p>
         {{articulo.description}} <!--La descripción también será variable en función de la contenida en los artículos-->
       </p >
