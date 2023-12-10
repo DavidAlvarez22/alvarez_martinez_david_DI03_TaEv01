@@ -66,7 +66,7 @@ export class GestionNoticiasService {
     // Buscamos el índice en este segundo array. Si no se encuentra la noticia, nos devolverá -1
     let indice2 : number = this.arraySegundaPagina.indexOf(articuloEncontradoArrayDos);
 
-    //Estructura condicional que nos permitirá introducir solo aquellos artículos que no se encuentren en el array de noticias seleccionadas. Por eso solo permitirá que se introduzcan los artículos cuyo índice sea igual a -1, es decir, que no existean en el array  
+    //Estructura condicional que nos permitirá introducir solo aquellos artículos que no se encuentren en el array de noticias seleccionadas. Por eso solo permitirá que se introduzcan los artículos cuyo índice sea igual a -1, es decir, que no existen en el array  
     if (indice2 == -1){
     
       //Si no existe en el array, mediante la función push meteremos la noticia

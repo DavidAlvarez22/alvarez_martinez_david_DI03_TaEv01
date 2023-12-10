@@ -15,7 +15,7 @@ export class Tab1Page {
  actualizarCheck(evento: { detail: { checked: boolean; }; }, articulo: Article){
     
   //Mediante esta estructura condicional comprobamos que el atributo checked de nuestro evento esté en true, es decir , 
-  //que se haya clickado y si es así, llamamos a la función insertar. Si se pulsa y es false, llamamos a la funcion borrar
+  //que se haya clickado y si es así, llamamos a la función insertar. Si se pulsa y es false, llamamos a la función borrar
   if (evento.detail.checked == true){
     
     //Llamamos a la función insertarArticulo de nuestro servicio y le pasamos el parámetro título.
