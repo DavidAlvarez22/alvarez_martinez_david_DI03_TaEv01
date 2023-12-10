@@ -23,7 +23,7 @@ async presentAlertConfirm(articulo:Article) {
   const alert = await this.alerta.create({
     cssClass: 'my-custom-class',
     header: 'Confirmar',
-    message: 'Borrar Noticia<!!!',
+    message: 'Borrar Noticia!!!',
     buttons: [
       {
         text: 'Cancel',

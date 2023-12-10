@@ -16,10 +16,6 @@ export class GestionNoticiasService {
     "articles" : []
    };
    
-  // Definimos el objeto articles que será un array de la clase Article y lo iniciamos
- 
-   private articles : Article[]=[];
-
   // Definimos el objeto arraySegundaPagina que será un array de la clase Article y lo iniciamos
   private arraySegundaPagina : Article[] = [];
 
