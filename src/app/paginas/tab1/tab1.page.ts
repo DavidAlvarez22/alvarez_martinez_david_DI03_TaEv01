@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { GestionNoticiasService } from '../servicios/gestion-noticias.service';
-import { Article } from '../Interfaces/mi-interfaz';
+import { GestionNoticiasService } from '../../servicios/gestion-noticias.service';
+import { Article } from '../../Interfaces/mi-interfaz';
 
 @Component({
   selector: 'app-tab1',

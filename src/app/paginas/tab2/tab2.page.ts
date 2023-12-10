@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { GestionNoticiasService } from '../servicios/gestion-noticias.service';
+import { GestionNoticiasService } from '../../servicios/gestion-noticias.service';
 import { AlertController } from '@ionic/angular';
-import { Article } from '../Interfaces/mi-interfaz';
+import { Article } from '../../Interfaces/mi-interfaz';
 
 @Component({
   selector: 'app-tab2',
