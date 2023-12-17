@@ -14,8 +14,8 @@
         <div style ="color:blue">{{articulo.source.name }}</div>
         <div style ="color:grey">{{articulo.title}} </div> 
       </ion-label>
-     
-      <ion-checkbox slot="start" (ionChange) = "actualizarCheck($event , articulo)"></ion-checkbox>
+
+        <ion-checkbox [checked]= "cambiarCheck(articulo)" slot="start" (ionChange) = "actualizarCheck($event , articulo)"></ion-checkbox>
     </ion-item>
   </ion-list>
 </ion-content>

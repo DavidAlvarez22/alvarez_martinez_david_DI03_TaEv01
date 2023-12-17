@@ -8,7 +8,7 @@ import { Article } from '../../Interfaces/mi-interfaz';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
+   
   constructor(public gestionDatos:GestionNoticiasService) {}
  
   //Función actualizarCheck . Recibe un evento que se trata de si se ha pulsado el check o no en nuestra página y el artículo seleccionado
@@ -24,6 +24,16 @@ export class Tab1Page {
   else if(evento.detail.checked == false) {
     this.gestionDatos. borrarArticulo(articulo);
   } 
+}
+// Método cambiarCheck que comprueba si la noticia pasada está en el ArraySegunda Página y nos devuelve true o false de cara a poder poner el tic en el checkbox de tab1.
+cambiarCheck(articulo : Article){
+  let indice : number = this.gestionDatos.comprobar(articulo);
+  if(indice != -1){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
 
 

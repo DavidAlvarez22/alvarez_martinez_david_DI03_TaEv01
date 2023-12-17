@@ -8,7 +8,7 @@ import { RootObject } from '../Interfaces/mi-interfaz';
   providedIn: 'root'
 })
 export class GestionNoticiasService {
-
+ 
    //Definimos el objeto todoFichero que será de la clase RootObject y lo inicializamos
    private todoFichero : RootObject= {
     "status": "",
@@ -18,7 +18,7 @@ export class GestionNoticiasService {
    
   // Definimos el objeto arraySegundaPagina que será un array de la clase Article y lo iniciamos
   private arraySegundaPagina : Article[] = [];
-
+  
   //Dentro del constructor introduciremos el objeto leerfichero que será de la clase HttpClient. Esto nos permitirá leer el archivo json.
   constructor(private leerFichero: HttpClient) {
     //Llamamos al método getleerFichero que nos permitirá leer el fichero json
@@ -55,30 +55,36 @@ export class GestionNoticiasService {
   insertarArticulo(articulo : Article){
 
     // En primer lugar, buscaremos el artículo en nuestro objeto todo fichero a través de la función find de arrays a través de una función anónima que devuelve el artículo que coincida con el articulo pasado a nuestra función
-    let articuloEncontrado : Article = this.todoFichero.articles.find(function(cadaArticulo){return cadaArticulo == articulo})!;
-
-    // En segundo lugar creamos una variable indice que nos mostrará a través de la función indexOf la posición de nuestro artículo en el array
-    let indice : number = this.todoFichero.articles.indexOf(articuloEncontrado);
+    let articuloEncontrado  = this.todoFichero.articles.find(function(cadaArticulo){return cadaArticulo == articulo});
     
-    //Para implementar el control de artículo y que no podamos seleccionar dos veces el artículo a leer, vamos a realizar la misma búsqueda , pero en este caso en un segundo array que será el que aparezca en la página leer.
-    let articuloEncontradoArrayDos = this.arraySegundaPagina.find(function(cadaArticulo){return cadaArticulo == articulo})!;
-
-    // Buscamos el índice en este segundo array. Si no se encuentra la noticia, nos devolverá -1
-    let indice2 : number = this.arraySegundaPagina.indexOf(articuloEncontradoArrayDos);
-
-    //Estructura condicional que nos permitirá introducir solo aquellos artículos que no se encuentren en el array de noticias seleccionadas. Por eso solo permitirá que se introduzcan los artículos cuyo índice sea igual a -1, es decir, que no existen en el array  
-    if (indice2 == -1){
+    //Estructura condicional que nos controla que artículo encontrado, no sea undefined.
+   if(articuloEncontrado){
+      // En segundo lugar creamos una variable indice que nos mostrará a través de la función indexOf la posición de nuestro artículo en el array
+      let indice : number = this.todoFichero.articles.indexOf(articuloEncontrado);
+          
+      //Para implementar el control de artículo y que no podamos seleccionar dos veces el artículo a leer, vamos a realizar la misma búsqueda , pero en este caso en un segundo array que será el que aparezca en la página leer.
+      let articuloEncontradoArrayDos :Article = this.arraySegundaPagina.find(function(cadaArticulo){return cadaArticulo == articulo})!;
+            
+        // Buscamos el índice en este segundo array. Si no se encuentra la noticia, nos devolverá -1
+       let indice2: number = this.arraySegundaPagina.indexOf(articuloEncontradoArrayDos);
+       
+        //Estructura condicional que nos permitirá introducir solo aquellos artículos que no se encuentren en el array de noticias seleccionadas. Por eso solo permitirá que se introduzcan los artículos cuyo índice sea igual a -1, es decir, que no existen en el array  
+        if (indice2 == -1){
     
-      //Si no existe en el array, mediante la función push meteremos la noticia
-      this.arraySegundaPagina.push(this.todoFichero.articles[indice]);
-    } 
+          //Si no existe en el array, mediante la función push meteremos la noticia
+          this.arraySegundaPagina.push(this.todoFichero.articles[indice]);
+        }
+    }
   }   
   
    // Función borrarArticulo(). Recibe la noticia y no devuelve nada. Sirve para borrar en el array arraySegundaPagina un nuevo artículo   
    borrarArticulo(articulo: Article){
     
     // buscar el artículo
-    let articuloEncontrado = this.arraySegundaPagina.find(function(cadaArticulo){return cadaArticulo == articulo})!;
+    let articuloEncontrado = this.arraySegundaPagina.find(function(cadaArticulo){return cadaArticulo == articulo});
+
+    //Estructura condicional que nos controla que artículo encontrado, no sea undefined.
+    if(articuloEncontrado){
 
     // buscar el índice del articulo por el array
     let indice : number = this.arraySegundaPagina.indexOf(articuloEncontrado);
@@ -87,10 +93,22 @@ export class GestionNoticiasService {
     //Si diera -1, es decir, que la noticia no existe, no haría nada. Evitamos poner -1, ya que si pasamos ese índice, al ser 
     //negativo empezaría a contar desde el final del array y borraría el de esa posición.
     if (indice != -1){
-    
       //Borra el artículo con la función splice
       this.arraySegundaPagina.splice(indice,1);
+     
     }
+    }
+  }
+  // Función comprobar(). Recibe una noticia y devuelve el índice de la misma o -1 en caso de no encontrarla en el array arraySegundaPagina  
+  comprobar(articulo: Article){
+    
+    // buscar el artículo
+    let articuloEncontrado = this.arraySegundaPagina.find(function(cadaArticulo){return cadaArticulo == articulo})!;
+
+    // buscar el índice del articulo por el array
+    let indice : number = this.arraySegundaPagina.indexOf(articuloEncontrado);
+    
+    return indice;
   }
 }
   

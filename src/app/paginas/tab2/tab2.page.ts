@@ -36,6 +36,7 @@ async presentAlertConfirm(articulo:Article) {
         text: 'Okay',
         handler: () => {
           this.gestionDatos.borrarArticulo(articulo);
+         
           console.log('Confirm Okay');
         }
       }
